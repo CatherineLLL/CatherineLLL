@@ -11,6 +11,12 @@
 - [指针](#指针)
 - [defer 关键字](#defer-关键字)
 - [slice](#slice)
+- [map](#map)
+- [面向对象](#面向对象)
+- [反射（reflect）](#反射reflect)
+- [结构体标签](#结构体标签)
+- [goroutine](#goroutine)
+- [Channel](#channel)
 
 ---
 
@@ -542,5 +548,3 @@ c := make(chan int,3)//缓冲区大小为3的channel
 ###channel与range
 
 ---
-
-> 📖 **完整笔记**: [查看原始Markdown文件](Notes/golang.md) 
