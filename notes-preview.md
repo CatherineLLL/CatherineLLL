@@ -1,6 +1,6 @@
 # 📚 Go 语言学习笔记
 
-> 这是一个简单的的 Go 语言学习笔记。
+> 这是一个简单的 Go 语言学习笔记。
 
 ## 📋 目录
 
@@ -233,71 +233,73 @@ sliceTest = append(sliceTest, 1)
 sliceTest = append(sliceTest, 2)
 ```
 
-###切片截取
-采用``[a : b]``的方式表示截取[a,b)的范围；
+### 切片截取
+采用`[a : b]`的方式表示截取[a,b)的范围；
 ***注意该方式不进行拷贝，只会将新切片的头尾指针指向a和b，通过新切片下标修改数据同样会修改原有切片的数据，如果要进行拷贝构造新切片需要使用copy()函数***
 
 ```go
-	// 初始化长度为2的数组
-	sliceTest2 := make([]int, 2)
-	// 只拷贝了前两个，因为sliceTest2长度为2
-	copy(sliceTest[:3], sliceTest2)
-	// sliceTest2=[10 0]
-	sliceTest2[0] = 10
+// 初始化长度为2的数组
+sliceTest2 := make([]int, 2)
+// 只拷贝了前两个，因为sliceTest2长度为2
+copy(sliceTest[:3], sliceTest2)
+// sliceTest2=[10 0]
+sliceTest2[0] = 10
 
-	var sliceTest3 []int
-	copy(sliceTest[:3], sliceTest3)
-	//编译报错，因为sliceTest3没有初始化，lenth是0
-	sliceTest3[0] = 7
-
+var sliceTest3 []int
+copy(sliceTest[:3], sliceTest3)
+//编译报错，因为sliceTest3没有初始化，lenth是0
+sliceTest3[0] = 7
 ```
 
-##map
-###声明方式
+## map
+
+### 声明方式
 
 ```go
-	// 方式一：使用make关键字构造
-	myMap2 := make(map[int]string, 3)
-	// 方式二：直接声明并初始化
-	myMap3 := map[int]string{
-		0: "c++",
-		1: "java",
-	}
+// 方式一：使用make关键字构造
+myMap2 := make(map[int]string, 3)
+// 方式二：直接声明并初始化
+myMap3 := map[int]string{
+	0: "c++",
+	1: "java",
+}
 ```
 
-###使用
-删除元素
+### 使用
+
+删除元素：
 
 ```go
-// 删除map中的元素(key )
-	delete(myMap3, 1)
+// 删除map中的元素(key)
+delete(myMap3, 1)
 ```
 
-遍历
+遍历：
 
 ```go
-	for _, value := range myMap3 {
-		fmt.Println(value)
-	}
+for _, value := range myMap3 {
+	fmt.Println(value)
+}
 ```
 
-map传参是引用传递
+map传参是引用传递：
 
 ```go
-	changeMap(myMap3) // m[1] = "python"
-	fmt.Println(myMap3)
-	
+changeMap(myMap3) // m[1] = "python"
+fmt.Println(myMap3)
+
 func changeMap(m map[int]string) {
 	m[1] = "python"
 }
-
 ```
 
-##面向对象
-###封装
+## 面向对象
+
+### 封装
+
 go以包（package）为单位讨论封装
 
-使用type关键字定义结构体
+使用type关键字定义结构体：
 
 ```go
 // 如果类名首字母大写，表示其他包也能访问
@@ -310,11 +312,12 @@ func SetName(this *Person) {
 	this.Name = "Lisa"
 }
 ```
+
 类名、属性名首字母大写，表示该属性对外可访问（其它包内也可访问）
 
-###继承
+### 继承
 
-在子类中直接声明父类对象
+在子类中直接声明父类对象：
 
 ```go
 type Student struct {
@@ -323,7 +326,8 @@ type Student struct {
 }
 ```
 
-###多态
+### 多态
+
 使用interface来定义一个父类接口，本质是指针
 子类需要实现所有父类的接口方法
 
@@ -335,8 +339,8 @@ type AnimalIF interface {
 	GetColor() string
 }
 ```
-声明一个子类方法
 
+声明一个子类方法：
 
 ```go
 type Dog struct {
@@ -352,40 +356,13 @@ func (this *Dog) Sleep() {
 }
 ```
 
-可以用父类的指针来调用子类的方法
+## 反射（reflect）
 
-```go
-var animal AnimalIF // animal是父类指针
-animal = &Dog{"yellow"}
-animal.Sleep()
-fmt.Println(animal.GetColor())
-
-```
-
-nterface{}还可以代表空接口，可以传入任意类型；通过类型断言来确定传入的具体是什么类型
-
-```go
-func myFunc(arg interface{}) {
-	fmt.Println("myFunc is called")
-	fmt.Println(arg)
-
-	// 类型断言
-	value, ok := arg.(string)
-
-	if !ok {
-		fmt.Println("arg is not string")
-	} else {
-		fmt.Println("arg is string,value=", value)
-	}
-}
-```
-
-##反射（reflect）
-* go中的每个变量底层都会对应一个pair\<type,val\>；
-* 类型断言是判断type是不是对应数据类型
-*  ``reflect.TypeOf(i interface{})``:动态获取输入接口中的值的类型，如果接口为空则返回nil
-* ``reflect.ValueOf(i interface{})``:获取输入接口中数据的值，如果为空接口则返回0；
-* 使用reflect需要import reflect包
+- go中的每个变量底层都会对应一个pair<type,val>
+- 类型断言是判断type是不是对应数据类型
+- `reflect.TypeOf(i interface{})`: 动态获取输入接口中的值的类型，如果接口为空则返回nil
+- `reflect.ValueOf(i interface{})`: 获取输入接口中数据的值，如果为空接口则返回0
+- 使用reflect需要import reflect包
 
 ```go
 type Person struct {
@@ -409,11 +386,11 @@ func reflectTest(arg interface{}) {
 		fmt.Println(field.Name, value)
 	}
 }
-
 ```
+
 执行以上代码，输出：
 
-```go
+```
 type of arg is  main.Person
 value of arg is  {Lisa 18}
 kind of arg is  struct
@@ -421,8 +398,9 @@ Name Lisa
 Age 18
 ```
 
-##结构体标签
-go中可以使用结构体标签进行json序列化/反序列化；
+## 结构体标签
+
+go中可以使用结构体标签进行json序列化/反序列化
 
 进行json序列化/反序列化需要引入头文件：
 
@@ -442,109 +420,95 @@ type Person struct {
 
 ```go
 // 序列化 struct->json
-	person := Person{"Lisa", 18, 1}
-	jsonStr, err := json.Marshal(person)
-	if err != nil {
-		fmt.Println("json marshal failed,err:", err)
-		return
-	}
-	fmt.Println(string(jsonStr))
+person := Person{"Lisa", 18, 1}
+jsonStr, err := json.Marshal(person)
+if err != nil {
+	fmt.Println("json marshal failed,err:", err)
+	return
+}
+fmt.Println(string(jsonStr))
 
-	// 反序列化 json->struct
-	person2 := Person{}
-	err = json.Unmarshal(jsonStr, &person2)
-	if err != nil {
-		fmt.Println("json unmarshal failed,err:", err)
-		return
-	}
-	fmt.Println(person2)
-	
+// 反序列化 json->struct
+person2 := Person{}
+err = json.Unmarshal(jsonStr, &person2)
+if err != nil {
+	fmt.Println("json unmarshal failed,err:", err)
+	return
+}
+fmt.Println(person2)
 ```
+
 输出示例：
 
-```go
+```
 {"name":"Lisa","age":18,"sex":1}
 {Lisa 18 1}
-
 ```
 
-##goroutine
-* 多线程引入的问题：
-	* CPU线程切换成本较高（系统调用、上下文切换），造成CPU时间浪费；线程数量越多，切换成本越大，浪费CPU时间越多；
-	* 多线程伴随同步竞争（锁、资源冲突等），使得开发设计变复杂；
+## goroutine
 
-* 多进程壁垒：
-	* 进程内存占用高
+- 多线程引入的问题：
+	- CPU线程切换成本较高（系统调用、上下文切换），造成CPU时间浪费；线程数量越多，切换成本越大，浪费CPU时间越多
+	- 多线程伴随同步竞争（锁、资源冲突等），使得开发设计变复杂
 
-###协程 （co-routine）
-* 将线程分为两部分：内核部分和用户态部分，用户态部分称为协程，对CPU不可见
-![](pictures/goroutine.jpg)
+- 多进程壁垒：
+	- 进程内存占用高
 
-* go中的协程命名为goroutine，使用协程调度器，将协程分配给线程执行；
-* 协程的好处：
-	* 内存占用少（几kb），因此可以大量分配协程；
-	* 灵活切换；
+### 协程 （co-routine）
 
-###go协程调度机制（GMP）
-* GMP含义：
-	* G：Goroutine，协程；
-	* M：Machine，线程；
-	* P：Processor，协程调度器
+- 将线程分为两部分：内核部分和用户态部分，用户态部分称为协程，对CPU不可见
 
-* GPM示意：
-![](pictures/GPM.jpg)
+![Goroutine示意图](Notes/pictures/goroutine.jpg)
 
-####调度器的主要设计策略
-* 复用线程
-	* **work stealing** 机制：当P2的本地队列为空但P1的本地队列仍有待执行的goroutine时，直接从P1的本地队列中偷取协程在M2上执行；
-	* **hand off** 机制：如果G1在M1上执行被阻塞时，就会创建/唤醒一个新的thread（M3），再将P1及其本地队列绑定到M3执行，原有G1仍在M1上执行；
-	![](pictures/HandOff.jpg)
-	
-* 利用并行：使用GOMAXPROCS来限定P的个数，一般设定为CPU核数/2；
-* 抢占：如果该调度器中还有其它未执行完成的协程，每个goroutine按照时间片（10ms）来使用threaad，如果到了时间片结束时原goroutine未主动释放，则新的待执行协程会主动抢占处理器；
-* 全局G队列：GMP机制中还有一个带锁的全局协程队列，当所有本地队列为空时，P会主动从全局队列拿待执行协程；但该动作需要对全局队列加解锁，时间比较久
+### go协程调度机制（GMP）
 
-####创建goroutine
-使用go 关键字创建goroutine并执行其后的func
+![GPM调度模型](Notes/pictures/GPM.jpg)
+
+#### 调度器的主要设计策略
+
+1. **复用线程**：避免频繁的创建、销毁线程
+2. **利用并行**：GOMAXPROCS设置P的数量
+3. **抢占调度**：在syscall或长时间阻塞时，让出CPU
+4. **全局G队列**：当M执行完G后，会从全局队列取G
+
+#### 创建goroutine
 
 ```go
-go Test() //将Test函数放在一个新的gorutine中执行
-
-```
-退出当前goroutine的方法：调用 ``runtime.Goexit()``
-
-##Channel
-
-* channel是go的一种内置数据类型，两个goroutine之间可以通过channel来通信；
-```go
-c := make(chan int)
+go func() {
+	fmt.Println("Hello from goroutine")
+}()
 ```
 
-###有缓冲和无缓冲channel区别
+## Channel
 
-####无缓冲channel
-* 第一步：两个goroutine都到达通道，但两个都没有开始执行发送和接收；
-* 第二步：发送方开始发送。此时，发送方协程在通道中阻塞，直到数据交换完毕；
-* 第三步：接收方协程开始接收，此时接收方协程也在通道中被阻塞，直到数据交换完毕；
-* 第四步：数据发送及接收过程；
-* 第五步：数据交换完毕，两个协程同时释放；
+Channel是Go语言中用于goroutine之间通信的机制
 
-####有缓冲channel
-* 数据发送与接收异步，互不阻塞；
-* 通道满时，发送方阻塞；
-* 通道空时，接收方阻塞；
+### 有缓冲和无缓冲channel区别
+
+#### 无缓冲channel
 
 ```go
-c := make(chan int,3)//缓冲区大小为3的channel 
+ch := make(chan int) // 无缓冲
 ```
 
-###关闭channel
-* 通过close()方法来关闭channel
-* 当没有数据可发送时，可以关闭channel
-* 关闭channel后，无法向channel中再发送数据（会引发panic错误：panic: send on closed channel）
-* 关闭channel后，可以继续从channel接收数据；
-* 对于nil channel(未通过make初始化的channel)，无论收发都会被阻塞；
+- 发送和接收必须同时准备好
+- 否则会阻塞
 
-###channel与range
+#### 有缓冲channel
+
+```go
+ch := make(chan int, 3) // 有缓冲，容量为3
+```
+
+- 缓冲区未满时可以发送
+- 缓冲区非空时可以接收
+
+### 关闭channel
+
+```go
+close(ch) // 关闭channel
+```
+
+### channel与range
 
 ---

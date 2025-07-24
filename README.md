@@ -73,24 +73,6 @@ go语言基础:
   <a href="notes-preview.md" target="_blank">📖 Go Learning Notes</a>
 </div>
 
-#### 📋 Topics Covered:
-- **Variables & Constants** - Declaration methods, iota usage
-- **Control Structures** - Loops, conditionals, switch statements
-- **Functions & Methods** - Function declarations, receivers, closures
-- **Data Structures** - Arrays, slices, maps, structs
-- **Concurrency** - Goroutines, channels, select statements
-- **Error Handling** - Error types, custom errors, panic/recover
-- **Packages & Modules** - Import statements, module management
-- **Testing** - Unit tests, benchmarks, examples
-
-#### 🎯 Key Features:
-- **Code Examples** - Practical code snippets for each concept
-- **Visual Diagrams** - Flowcharts and diagrams for complex topics
-- **Best Practices** - Industry-standard coding patterns
-- **Performance Tips** - Optimization techniques and guidelines
-
----
-
 ## 🛠️ Tech Stack
 
 <div align="center">
