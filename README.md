@@ -70,7 +70,7 @@ I'm a passionate software engineer with expertise in Go and C++ development. I l
 I maintain detailed learning notes for Go language development. Check out my comprehensive study materials:
 
 <div align="center">
-  <a href="Notes/golang.md" target="_blank">
+  <a href="notes-preview.md" target="_blank">
     <img src="https://img.shields.io/badge/📖_Go_Learning_Notes-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go Learning Notes" />
   </a>
 </div>
