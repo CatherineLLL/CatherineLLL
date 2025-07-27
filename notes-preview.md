@@ -17,7 +17,7 @@
 - [结构体标签](#结构体标签)
 - [goroutine](#goroutine)
 - [Channel](#channel)
-- [go module](#GO Module)
+- [go module](#go-module)
 
 ---
 
@@ -537,7 +537,7 @@ for data:= range c {
 	}
 ```
 
-## GO Module
+## Go Module
 
 ###GOPATH 工作模式
 
