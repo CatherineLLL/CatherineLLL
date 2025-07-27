@@ -17,6 +17,7 @@
 - [结构体标签](#结构体标签)
 - [goroutine](#goroutine)
 - [Channel](#channel)
+- [go module](#GO Module)
 
 ---
 
@@ -511,4 +512,46 @@ close(ch) // 关闭channel
 
 ### channel与range
 
----
+可以使用range来迭代不断操作channel
+
+```go
+for data:= range c {
+    // 使用range来从c中读数据
+    fmt.println(data)
+}
+```
+
+###channel与select
+可以使用selecr监控多个channel状态；
+
+```go
+	select {
+	case c <- 1:
+		//c中可写
+		fmt.Println("c")
+	case <-quit:
+		//quit中可读,退出
+		fmt.Println("quit")
+	default:
+		fmt.Println("default")
+	}
+```
+
+## GO Module
+
+###GOPATH 工作模式
+
+####弊端
+* 没有版本控制的概念
+* 无法同步一致第三方版本号；
+* 无法指定当前项目引用的第三方版本号；
+
+###常用go mod 命令
+
+|命令 | 说明 |
+| --- | --- | 
+|go mod init | 生成go.mod文件|
+|go mod download|下载go.mod文件中指明的所有依赖|
+|go mod tidy|管理依赖：添加缺失的依赖并移除未使用的依赖|
+|go mod graph |展示依赖关系|
+

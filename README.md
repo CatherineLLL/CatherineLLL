@@ -14,7 +14,7 @@ languages: [Go, C++]
 interests: [Backend Development, System Programming, Open Source]
 ```
 
-I'm a passionate software engineer with expertise in Go and C++ development. I love building robust, scalable systems and contributing to open-source projects.
+绵绵用力，久久为功
 
 ## 🚀 Projects
 
