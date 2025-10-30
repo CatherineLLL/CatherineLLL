@@ -15,62 +15,12 @@ interests: [Backend Development, System Programming, Open Source]
 ```
 
 绵绵用力，久久为功
-
-## 🚀 Projects
-
-### Featured Projects
-
-<table>
-  <tr>
-    <td width="50%">
-      <h3 align="center">Project 1</h3>
-      <p align="center">
-        <a href="#" target="_blank">
-          <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go" />
-        </a>
-        <a href="#" target="_blank">
-          <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-        </a>
-      </p>
-      <p align="center">
-        A high-performance backend service built with Go and Docker
-      </p>
-      <p align="center">
-        <a href="#" target="_blank">
-          <img src="https://img.shields.io/badge/View_Project-FF6B6B?style=for-the-badge&logo=github&logoColor=white" alt="View Project" />
-        </a>
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center">Project 2</h3>
-      <p align="center">
-        <a href="#" target="_blank">
-          <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" />
-        </a>
-        <a href="#" target="_blank">
-          <img src="https://img.shields.io/badge/CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white" alt="CMake" />
-        </a>
-      </p>
-      <p align="center">
-        System-level programming project with C++ and CMake
-      </p>
-      <p align="center">
-        <a href="#" target="_blank">
-          <img src="https://img.shields.io/badge/View_Project-FF6B6B?style=for-the-badge&logo=github&logoColor=white" alt="View Project" />
-        </a>
-      </p>
-    </td>
-  </tr>
-</table>
-
 ## 📚 Notes & Learning
 
-### Go Language Learning Notes
-
-go语言基础:
+### 技术学习相关记录:
 
 <div align="left">
-  <a href="notes-preview.md" target="_blank">📖 Go Learning Notes</a>
+  <a href="技术学习.md" target="_blank">📖 Tech Learning Notes</a>
 </div>
 
 ## 🛠️ Tech Stack

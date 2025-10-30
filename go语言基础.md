@@ -17,7 +17,8 @@
 - [结构体标签](#结构体标签)
 - [goroutine](#goroutine)
 - [Channel](#channel)
-- [go module](#go-module)
+- [go module](#Go-Module)
+- [GPM](#GPM)
 
 ---
 
@@ -554,4 +555,14 @@ for data:= range c {
 |go mod download|下载go.mod文件中指明的所有依赖|
 |go mod tidy|管理依赖：添加缺失的依赖并移除未使用的依赖|
 |go mod graph |展示依赖关系|
+
+## GPM
+
+### GPM模型
+- G：goroutine：go协程
+- P：processor：调度器
+- M：machine（thread）：内核线程
+
+
+
 
