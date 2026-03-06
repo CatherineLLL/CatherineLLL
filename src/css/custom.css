@@ -1,0 +1,85 @@
+/**
+ * 皮卡丘风格主题 - CatherineLu
+ * 主色：皮卡丘黄 | 点缀：腮红红 | 简洁有质感
+ */
+
+/* 亮色模式 - 皮卡丘黄主色 */
+:root {
+  --ifm-color-primary: #E6B800;
+  --ifm-color-primary-dark: #CC9F00;
+  --ifm-color-primary-darker: #BF9500;
+  --ifm-color-primary-darkest: #9C7A00;
+  --ifm-color-primary-light: #FFCB05;
+  --ifm-color-primary-lighter: #FFD11F;
+  --ifm-color-primary-lightest: #FFE066;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(230, 184, 0, 0.15);
+  /* 皮卡丘腮红红作为链接 hover 点缀 */
+  --ifm-link-color: #C45C3E;
+  --ifm-link-hover-color: #E06B4A;
+}
+
+/* 导航栏 - 淡黄底 + 深色字 */
+.navbar {
+  background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CC 100%) !important;
+  box-shadow: 0 1px 3px rgba(230, 184, 0, 0.2);
+}
+
+.navbar__title,
+.navbar__link {
+  color: #2D2D2D !important;
+}
+
+.navbar__link--active {
+  color: var(--ifm-color-primary-darkest) !important;
+  font-weight: 600;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-link-hover-color) !important;
+}
+
+/* 按钮 - 皮卡丘黄 */
+.button--primary {
+  background: linear-gradient(180deg, #FFCB05 0%, #E6B800 100%);
+  border-color: #CC9F00;
+  color: #2D2D2D;
+}
+
+.button--primary:hover {
+  background: linear-gradient(180deg, #FFE066 0%, #FFCB05 100%);
+  border-color: #E6B800;
+  color: #2D2D2D;
+}
+
+/* 暗色模式 - 琥珀/深黄保持质感 */
+[data-theme='dark'] {
+  --ifm-color-primary: #FFCB05;
+  --ifm-color-primary-dark: #E6B800;
+  --ifm-color-primary-darker: #CC9F00;
+  --ifm-color-primary-darkest: #9C7A00;
+  --ifm-color-primary-light: #FFD11F;
+  --ifm-color-primary-lighter: #FFE066;
+  --ifm-color-primary-lightest: #FFEB99;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 203, 5, 0.15);
+  --ifm-link-color: #F4A88A;
+  --ifm-link-hover-color: #FFC4A8;
+}
+
+[data-theme='dark'] .navbar {
+  background: linear-gradient(135deg, #2D2D2D 0%, #1a1a1a 100%) !important;
+  box-shadow: 0 1px 3px rgba(255, 203, 5, 0.1);
+}
+
+[data-theme='dark'] .navbar__title,
+[data-theme='dark'] .navbar__link {
+  color: #FFF9E6 !important;
+}
+
+[data-theme='dark'] .navbar__link--active {
+  color: var(--ifm-color-primary-lightest) !important;
+}
+
+[data-theme='dark'] .navbar__link:hover {
+  color: var(--ifm-color-primary-light) !important;
+}

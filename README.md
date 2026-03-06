@@ -20,7 +20,7 @@ interests: [Backend Development, System Programming, Open Source]
 ### 技术学习相关记录:
 
 <div align="left">
-  <a href="技术学习.md" target="_blank">📖 Tech Learning Notes</a>
+  <a href="go语言基础.md" target="_blank">📖 Tech Learning Notes</a>
 </div>
 
 ## 🛠️ Tech Stack

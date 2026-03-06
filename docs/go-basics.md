@@ -1,11 +1,10 @@
 ---
-tags:
-  - go
-tittle: go基础学习笔记
-info: go基础知识学习笔记
+sidebar_position: 2
+title: Go 语言基础
+description: Go 基础知识学习笔记
 ---
 
-#  Go 语言学习笔记
+# Go 语言学习笔记
 
 ## 📋 目录
 
@@ -22,8 +21,8 @@ info: go基础知识学习笔记
 - [结构体标签](#结构体标签)
 - [goroutine](#goroutine)
 - [Channel](#channel)
-- [go module](#Go-Module)
-- [GPM](#GPM)
+- [Go Module](#go-module)
+- [GPM](#gpm)
 
 ---
 
@@ -85,7 +84,7 @@ const (
 
 - import时会执行对应包的init函数
 
-![Go初始化流程](Notes/pictures/goinit.jpg)
+![Go初始化流程](/Notes/pictures/goinit.jpg)
 
 - 在Go语言中，使用go.mod时，导入路径应该使用**模块名**作为前缀，而不是绝对路径
 
@@ -168,7 +167,7 @@ func main() {
 ## defer 关键字
 
 ### defer执行顺序
-先写的defer先入栈，后写的后入栈；调用时出栈；因此先写的defer后被调用；
+先写的defer先入栈，后写的后出栈；调用时出栈；因此先写的defer后被调用；
 
 ### defer和return的顺序
 return先执行，defer后执行:
@@ -365,7 +364,7 @@ func (this *Dog) Sleep() {
 
 ## 反射（reflect）
 
-- go中的每个变量底层都会对应一个pair<type,val>
+- go中的每个变量底层都会对应一个 `pair<type,val>`
 - 类型断言是判断type是不是对应数据类型
 - `reflect.TypeOf(i interface{})`: 动态获取输入接口中的值的类型，如果接口为空则返回nil
 - `reflect.ValueOf(i interface{})`: 获取输入接口中数据的值，如果为空接口则返回0
@@ -465,11 +464,11 @@ fmt.Println(person2)
 
 - 将线程分为两部分：内核部分和用户态部分，用户态部分称为协程，对CPU不可见
 
-![Goroutine示意图](Notes/pictures/goroutine.jpg)
+![Goroutine示意图](/Notes/pictures/goroutine.jpg)
 
 ### go协程调度机制（GMP）
 
-![GPM调度模型](Notes/pictures/GPM.jpg)
+![GPM调度模型](/Notes/pictures/GPM.jpg)
 
 #### 调度器的主要设计策略
 
@@ -527,8 +526,8 @@ for data:= range c {
 }
 ```
 
-###channel与select
-可以使用selecr监控多个channel状态；
+### channel与select
+可以使用select监控多个channel状态；
 
 ```go
 	select {
@@ -555,7 +554,7 @@ for data:= range c {
 ### 常用go mod 命令
 
 |命令 | 说明 |
-| --- | --- | 
+| --- | --- |
 |go mod init | 生成go.mod文件|
 |go mod download|下载go.mod文件中指明的所有依赖|
 |go mod tidy|管理依赖：添加缺失的依赖并移除未使用的依赖|
@@ -567,7 +566,3 @@ for data:= range c {
 - G：goroutine：go协程
 - P：processor：调度器
 - M：machine（thread）：内核线程
-
-
-
-
