@@ -1,6 +1,8 @@
 ---
 sidebar_position: 1
 title: 笔记
+pagination_next: null
+pagination_prev: null
 ---
 
 # 笔记
