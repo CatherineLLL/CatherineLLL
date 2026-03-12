@@ -24,7 +24,7 @@ description: C++ STL 学习笔记
 - **连续存储、尾部高效，自动扩缩容**；
 - 使用场景：（1）动态增长和缩小的数组；（2）可以根据下标访问；（3）频繁在末尾添加/删除元素；
 - 不适用场景：频繁在中间增删元素（每次都涉及元素移动）；
-```C++
+```cpp
 #include <iostream>
 #include <vector>
 int main() {
@@ -93,7 +93,7 @@ return 0;
 - **迭代器失效**：
 	- 失效场景：引发扩容、 元素挪动位置
 	- 失效原因：（1）扩容时需要开辟新的内存并把旧数据全部搬到新内存，此时所有旧的迭代器都会失效；（2）如果往中间insert元素，插入点之后的所有迭代器都会因为元素后移而失效；
-```C++
+```cpp
 // 引发扩容导致失效
 std::vector<int> v = {1, 2, 3};
 auto it = v.begin();
@@ -159,7 +159,7 @@ for (auto it = v.begin(); it != v.end(); ++it) {
 | **大顶堆（默认）** | `priority_queue<int> pq;`                                                        | 数值越大，优先级越高 |
 | **小顶堆**     | 需要传入三个参数：数据类型、底层容器、比较函数。<br />`priority_queue<int, vector<int>, greater<int>> pq;` | 数值越小，优先级越高 |
 
-```C++
+```cpp
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -189,7 +189,7 @@ int main() {
 
 - 常用场景：任务调度、Dijkstra 算法；
 - 自定义排序算法
-```C++
+```cpp
 auto cmp = [](int a,int b){return a>b;};// 小的优先
 // 注意：这里需要 decltype(cmp) 来获取类型，并在构造函数中传入 cmp
 std::priority_queue<int,std::vector<int>,decltype(cmp)> pq(cmp);
@@ -334,7 +334,7 @@ $$\text{'{'}Load Factor负载因子{'}'} (\alpha) = \frac{'{'}\text{'{'}Current 
 	- 3、插入排序：当数据量缩减到很小（通常是 16 个元素以内）时，由于插入排序在小规模数据上具有极佳的缓存局部性，它会切换到插入排序来收尾；
 - 自定义排序函数：
 	- 使用lamda函数；
-```C++
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
