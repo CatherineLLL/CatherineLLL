@@ -12,7 +12,7 @@ description: C++ STL 学习笔记
 | --------- | ------------------------------------------------------------------------------------------------------------ | ------------- | ------------------------------------------------------------------------------ |
 | 通用多用途头文件  | `<cstdlib>`                                                                                                  | 通用头文件         | `size_t`、`abort`、`malloc`、`atoi` 等                                             |
 | 语言支持库     | `<climits>`                                                                                                  | 整数类型限制        | `INT_MIN`,`INT_MAX`                                                            |
-| ==内存管理库== | ==`<memory>`==                                                                                               | ==内存管理工具==    | 智能指针（`shared_ptr`）及相关操作函数                                                      |
+| 内存管理库 | `<memory>`                                                                                               | ==内存管理工具==    | 智能指针（`shared_ptr`）及相关操作函数                                                      |
 | 容器库       | `<vector>` `<list>` `<set>` `<map>` `<unordered_map>` `<uorrdered_set>` `<stack>` `<forward_list>` `<queue>` | 常用容器          | 见下方详细说明                                                                        |
 | 算法库       | `<algorithm>`                                                                                                | 范围操作算法        | 见下方详细说明                                                                        |
 | 字符串库      | `<string>` `<cstring>`                                                                                       | 字符串模板及字符串相关算法 | 见下方详细说明                                                                        |
@@ -309,18 +309,100 @@ $$\text{'{'}Load Factor负载因子{'}'} (\alpha) = \frac{'{'}\text{'{'}Current 
 - <code>&lt;algorithm&gt;</code> 头文件
 ### 常用算法
 
-| **分类**    | **算法名称**             | **返回类型**          | **功能说明**               | **支持的容器**                           | **时间复杂度**       |
-| --------- | -------------------- | ----------------- | ---------------------- | ----------------------------------- | --------------- |
-| **查找与计数** | `std::find`          | `Iterator`        | 查找第一个匹配元素              | **所有容器**                            | O(n)          |
-|           | `std::count`         | `difference_type` | 统计匹配值的个数               | **所有容器**                            | O(n)          |
-|           | `std::any_of`        | `bool`            | 是否有任一元素满足条件            | **所有容器**                            | O(n)          |
-| **排序与搜索** | `std::sort`          | `void`            | 原地排序                   | **仅限随机访问**: vector, deque           | O(n log n)   |
-|           | `std::lower_bound`   | `Iterator`        | 返回第一个 **$\ge$** 给定值的位置 | **有序序列**: vector, deque, set*, map* | O(log n)     |
-|           | `std::upper_bound`   | `Iterator`        | 返回第一个 $>$ 给定值的位置       | **有序序列**: vector, deque, set*, map* | **O(log n)** |
-|           | `std::binary_search` | `bool`            | 告知目标是否存在               | **有序序列**: vector, deque, set, map   | O(log n)     |
-| **修改与转换** | `std::copy`          | `OutputIterator`  | 复制区间到目标位置              | **所有序列容器**                          | O(n)          |
-|           | `std::transform`     | `OutputIterator`  | 对区间元素做变换               | **所有序列容器**                          | O(n)          |
-|           | `std::replace`       | `void`            | 原地替换元素值                | **所有序列容器**                          | O(n)          |
-| **生成与删除** | `std::fill`          | `void`            | 用指定值填充区间               | **所有序列容器**                          | O(n)          |
-|           | `std::unique`        | `Iterator`        | 返回去重后的逻辑末尾             | **序列容器** (通常先 sort)                 | O(n)          |
-|           | `std::reverse`       | `void`            | 原地反转区间                 | **双向访问容器**: vector, list, deque     | O(n)          |
+| **分类**    | **算法名称**             | **返回类型**          | **功能说明**               | **支持的容器**                             | **时间复杂度**    |
+| --------- | -------------------- | ----------------- | ---------------------- | ------------------------------------- | ------------ |
+| **查找与计数** | `std::find`          | `Iterator`        | 查找第一个匹配元素              | **所有容器**                              | O(n)         |
+|           | `std::count`         | `difference_type` | 统计匹配值的个数               | **所有容器**                              | O(n)         |
+|           | `std::any_of`        | `bool`            | 是否有任一元素满足条件            | **所有容器**                              | O(n)         |
+| **排序与搜索** | `std::sort`          | `void`            | 原地排序                   | **仅限随机访问**: vector, deque             | O(n log n)   |
+|           | `std::lower_bound`   | `Iterator`        | 返回第一个 **$\ge$** 给定值的位置 | **有序序列**: vector, deque, set\*, map\* | O(log n)     |
+|           | `std::upper_bound`   | `Iterator`        | 返回第一个 $>$ 给定值的位置       | **有序序列**: vector, deque, set\*, map\* | **O(log n)** |
+|           | `std::binary_search` | `bool`            | 告知目标是否存在               | **有序序列**: vector, deque, set, map     | O(log n)     |
+| **修改与转换** | `std::copy`          | `OutputIterator`  | 复制区间到目标位置              | **所有序列容器**                            | O(n)         |
+|           | `std::transform`     | `OutputIterator`  | 对区间元素做变换               | **所有序列容器**                            | O(n)         |
+|           | `std::replace`       | `void`            | 原地替换元素值                | **所有序列容器**                            | O(n)         |
+| **生成与删除** | `std::fill`          | `void`            | 用指定值填充区间               | **所有序列容器**                            | O(n)         |
+|           | `std::unique`        | `Iterator`        | 返回去重后的逻辑末尾             | **序列容器** (通常先 sort)                   | O(n)         |
+|           | `std::reverse`       | `void`            | 原地反转区间                 | **双向访问容器**: vector, list, deque       | O(n)         |
+
+### sort
+- sort底层使用内省排序，可以根据数据量和分布情况在快排、堆排和插入排序中切换；
+- sort不是稳定排序（相同元素的相对位置不变），如果想要稳定排序可以使用`std::stable_sort`，但效率会有所降低，stable_sort的底层是归并排序；
+- 排序算法选择标准：
+	- 1、快排：数据量较大时，主要选择快排，因为它平均速度较快；
+	- 2、堆排序：当快排的递归深度超过一定阈值（发现数据分布极不均匀，快排可能退化）时，它会果断切换到堆排，保证最坏情况下的复杂度依然是 `O(n \log n)`;
+	- 3、插入排序：当数据量缩减到很小（通常是 16 个元素以内）时，由于插入排序在小规模数据上具有极佳的缓存局部性，它会切换到插入排序来收尾；
+- 自定义排序函数：
+	- 使用lamda函数；
+```C++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+struct Student {
+    std::string name;
+    int score;
+};
+
+int main() {
+    std::vector<Student> students = {{"Alice", 90}, {"Bob", 85}, {"Charlie", 95}};
+
+    // 需求：按分数从高到低排序 (降序)
+    std::sort(students.begin(), students.end(), [](const Student& a, const Student& b) {
+        return a.score > b.score; // 如果 a 的分更高，a 排在前面
+    });
+
+    for (const auto& s : students) std::cout << s.name << ":" << s.score << " ";
+    // 输出: Charlie:95 Alice:90 Bob:85 
+    return 0;
+}
+```
+
+#### 常见排序算法
+- 快速排序：选一个基准值，左边全比它小，右边全比它大；
+```C++
+// 核心分区函数
+int partition(std::vector<int>& v, int low, int high) {
+    int pivot = v[high]; // 选最后一个作为基准
+    int i = low - 1; 
+    for (int j = low; j < high; j++) {
+        if (v[j] < pivot) {
+            i++;
+            std::swap(v[i], v[j]);
+        }
+    }
+    std::swap(v[i + 1], v[high]);
+    return i + 1;
+}
+
+void quickSort(std::vector<int>& v, int low, int high) {
+    if (low < high) {
+        int pi = partition(v, low, high);
+        quickSort(v, low, pi - 1);  // 递归左半部分
+        quickSort(v, pi + 1, high); // 递归右半部分
+    }
+}
+```
+- 归并排序：递归二分到最底层，再合并
+	```C++
+	void merge(std::vector<int>& v, int l, int m, int r) {
+    std::vector<int> L(v.begin() + l, v.begin() + m + 1);
+    std::vector<int> R(v.begin() + m + 1, v.begin() + r + 1);
+
+    int i = 0, j = 0, k = l;
+    while (i < L.size() && j < R.size()) {
+        v[k++] = (L[i] <= R[j]) ? L[i++] : R[j++];
+    }
+    while (i < L.size()) v[k++] = L[i++]; // 补齐剩余部分
+    while (j < R.size()) v[k++] = R[j++];
+}
+
+void mergeSort(std::vector<int>& v, int l, int r) {
+    if (l < r) {
+        int m = l + (r - l) / 2;
+        mergeSort(v, l, m);
+        mergeSort(v, m + 1, r);
+        merge(v, l, m, r);
+    }
+}
+	```
