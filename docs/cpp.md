@@ -692,5 +692,3 @@ void leak(int n)
 	3. 当变量类型显而易见时，可以使用 `auto`
 	4. 当需要保持const或引用语义时，使用 `const auto`、`auto&` 或 `const auto&`
 	5. 避免在可能导致代码可读性下降的地方使用 `auto`
-
-## stl
