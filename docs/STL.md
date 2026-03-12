@@ -360,7 +360,7 @@ int main() {
 
 #### 常见排序算法
 - 快速排序：选一个基准值，左边全比它小，右边全比它大；
-```C++
+```cpp
 // 核心分区函数
 int partition(std::vector<int>& v, int low, int high) {
     int pivot = v[high]; // 选最后一个作为基准
@@ -384,8 +384,8 @@ void quickSort(std::vector<int>& v, int low, int high) {
 }
 ```
 - 归并排序：递归二分到最底层，再合并
-	```C++
-	void merge(std::vector<int>& v, int l, int m, int r) {
+```cpp
+void merge(std::vector<int>& v, int l, int m, int r) {
     std::vector<int> L(v.begin() + l, v.begin() + m + 1);
     std::vector<int> R(v.begin() + m + 1, v.begin() + r + 1);
 
@@ -405,4 +405,4 @@ void mergeSort(std::vector<int>& v, int l, int r) {
         merge(v, l, m, r);
     }
 }
-	```
+```
