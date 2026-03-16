@@ -9,7 +9,7 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'intro',
       },
-      items: ['go-basics', 'cpp', 'STL'],
+      items: ['go-basics', 'cpp', 'STL', 'MQTT'],
       collapsible: false,
     },
   ],

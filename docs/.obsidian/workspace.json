@@ -13,12 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "STL.md",
+                "file": "MQTT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "STL"
+              "title": "MQTT"
+            }
+          },
+          {
+            "id": "62dd18e730f7be93",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "MQTT.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "MQTT"
             }
           }
         ]
@@ -109,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "STL.md",
+                "file": "MQTT.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "STL 的反向链接列表"
+              "title": "MQTT 的反向链接列表"
             }
           },
           {
@@ -164,9 +178,20 @@
               "icon": "lucide-archive",
               "title": "添加笔记属性"
             }
+          },
+          {
+            "id": "561754bcc2146389",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "MQTT.md"
+              },
+              "icon": "lucide-info",
+              "title": "MQTT的笔记属性"
+            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -184,14 +209,15 @@
       "bases:新建数据库": false
     }
   },
-  "active": "f4490d95eb3a7181",
+  "active": "c232b7da3eeea16d",
   "lastOpenFiles": [
-    "未命名.base",
-    "STL.md",
-    "未命名 1.base",
-    "未命名.canvas",
     "cpp.md",
     "go-basics.md",
-    "intro.md"
+    "intro.md",
+    "MQTT.md",
+    "STL.md",
+    "未命名.base",
+    "未命名 1.base",
+    "未命名.canvas"
   ]
 }
