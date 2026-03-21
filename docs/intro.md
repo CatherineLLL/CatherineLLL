@@ -13,3 +13,4 @@ pagination_prev: null
 - **[C++ 学习笔记](cpp)** — C++ 基础知识学习笔记  
 - **[STL](STL)** — C++ STL 学习笔记  
 - **[MQTT](MQTT)** — MQTT 协议笔记
+- **[性能优化](性能优化)** — cpuloading优化、内存占用优化、perf、heaptrack
